@@ -2,11 +2,11 @@ var Sequelize = require('sequelize');
 
 
 const sequelize = new Sequelize(
-  'optika', // database
-  'root', // user / usuario
-  'root', //password
+  'sql7391060', // database
+  'sql7391060', // user / usuario
+  '1u1viBu3G3', //password
   {
-    host: 'localhost',
+    host: 'sql7.freemysqlhosting.net',
     dialect: 'mysql'
     ,
     

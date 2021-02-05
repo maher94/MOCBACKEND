@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "root",
-  DB: "optika",
+  HOST: "sql7.freemysqlhosting.net",
+  USER: "sql7391060",
+  PASSWORD: "1u1viBu3G3",
+  DB: "sql7391060",
   dialect: "mysql",
   pool: {
     max: 5,
