@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
   'id16100695_moussaoptique', // user / usuario
   '%Gtr0uI0YRB90DkZ', //password
   {
-    host: '99.000webhost.io',
+    host: 'databases.000webhost.com',
     dialect: 'mysql'
     ,
     
