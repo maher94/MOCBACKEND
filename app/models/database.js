@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 
 
 const sequelize = new Sequelize(
-  'id16100695_moc', // database
+  '99.000webhost.io', // database
   'id16100695_moussaoptique', // user / usuario
   '%Gtr0uI0YRB90DkZ', //password
   {
