@@ -2,11 +2,11 @@ var Sequelize = require('sequelize');
 
 
 const sequelize = new Sequelize(
-  'sql7391060', // database
-  'sql7391060', // user / usuario
-  '1u1viBu3G3', //password
+  'id16100695_moc', // database
+  'id16100695_moussaoptique', // user / usuario
+  '%Gtr0uI0YRB90DkZ', //password
   {
-    host: 'sql7.freemysqlhosting.net',
+    host: 'localhost',
     dialect: 'mysql'
     ,
     
