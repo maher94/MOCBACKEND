@@ -2,11 +2,11 @@ var Sequelize = require('sequelize');
 
 
 const sequelize = new Sequelize(
-  'id16100695_moc', // database
-  'id16100695_moussaoptique', // user / usuario
-  '%Gtr0uI0YRB90DkZ', //password
+  'bt5ljga7ljvkbk0vklkg', // database
+  'ufoeht8luebxzkwz', // user / usuario
+  'HECG9giNjB3OtkO3bYvm', //password
   {
-    host: '99.000webhost.io',
+    host: 'bt5ljga7ljvkbk0vklkg-mysql.services.clever-cloud.com',
     dialect: 'mysql'
     ,
     
