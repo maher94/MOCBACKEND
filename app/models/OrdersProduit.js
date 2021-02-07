@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     // name table
-    var nametable = 'ordersProduit';
+    var nametable = 'OrdersProduits';
     const ordersProduit = sequelize.define(nametable,{
         Orderno:{
             type:Sequelize.INTEGER,

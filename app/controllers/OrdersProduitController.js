@@ -164,7 +164,7 @@ controllers.update = async (req, res) => {
   controllers.countProductOrdersByStatus = async (req, res) => {
     const { userId } = req.params;
     const { status } = req.params;
-    const data = await db.sequelize.query('select count(*) as nb from OrdersProduits where userId=(:userId) and status=(:status) ', {
+    const data = await db.sequelize.query('select count(*) as nb from  OrdersProduits where userId=(:userId) and status=(:status) ', {
     replacements: {userId: userId,status: status},
     model: db.OrdersLentille,
      type: sequelize.QueryTypes.SELECT
@@ -174,7 +174,7 @@ controllers.update = async (req, res) => {
   }
   controllers.getClientdescriptionByOrdersProduit =async (req, res) => {
     const { Orderno } = req.params;
-    const data = await db.sequelize.query('select *, (SELECT firstname FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as FirstName , (SELECT LastName FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as Name , (SELECT adresse FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as Adresse , (SELECT city FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as City , (SELECT PostalCode FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as PostalCode , (SELECT country FROM users where id =(select userId from OrdersProduits where Orderno=(:Orderno)))  as Country  from OrdersProduits  where Orderno=(:Orderno) ', {
+    const data = await db.sequelize.query('select *, (SELECT firstname FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as FirstName , (SELECT LastName FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as Name , (SELECT adresse FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as Adresse , (SELECT city FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as City , (SELECT PostalCode FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as PostalCode , (SELECT country FROM users where id =(select userId from  OrdersProduits where Orderno=(:Orderno)))  as Country  from  OrdersProduits  where Orderno=(:Orderno) ', {
       replacements: {Orderno: Orderno},
     model: db.OrdersProduit,
      type: sequelize.QueryTypes.SELECT
@@ -190,7 +190,7 @@ controllers.update = async (req, res) => {
 
   controllers.getNbOrdersByMonth =async (req, res) => {
     
-    const data = await db.sequelize.query('select MONTHNAME(ordersproduits.Orderdate) as monthName,count(*) as nbOrders from ordersproduits     where   year(Orderdate) in (2020,2021)    group by MONTHNAME(ordersproduits.Orderdate)    order by month(ordersproduits.Orderdate);', {
+    const data = await db.sequelize.query('select MONTHNAME( OrdersProduits.Orderdate) as monthName,count(*) as nbOrders from  OrdersProduits     where   year(Orderdate) in (2020,2021)    group by MONTHNAME( OrdersProduits.Orderdate)    order by month( OrdersProduits.Orderdate);', {
     model: db.OrdersProduit,
      type: sequelize.QueryTypes.SELECT
   })
@@ -200,7 +200,7 @@ controllers.update = async (req, res) => {
   }
   controllers.totalProfitProduct =async (req, res) => {
     
-    const data = await db.sequelize.query('select sum(paidAmount) as ProductProfit from ordersproduits ', {
+    const data = await db.sequelize.query('select sum(paidAmount) as ProductProfit from  OrdersProduits ', {
     model: db.OrdersProduit,
      type: sequelize.QueryTypes.SELECT
   })
@@ -210,7 +210,7 @@ controllers.update = async (req, res) => {
   }
   controllers.listProduct = async (req,res) => {
      
-    const data = await db.sequelize.query(' select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id order by ordersproduits.Orderdate desc    ', {
+    const data = await db.sequelize.query(' select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id order by  OrdersProduits.Orderdate desc    ', {
      
       model:db.OrdersProduit,
        type: sequelize.QueryTypes.SELECT
@@ -219,7 +219,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listValidatedProductOrders = async (req, res) => {
-      const data = await db.sequelize.query(' select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Validated" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query(' select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Validated" order by  OrdersProduits.Orderdate desc    ', {
 
         model: db.OrdersProduit,
     
@@ -230,7 +230,7 @@ controllers.update = async (req, res) => {
     }
     
     controllers.listDraftProductOrders = async (req, res) => {
-      const data = await db.sequelize.query(' select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Draft" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query(' select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Draft" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -239,7 +239,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listRejectedProductOrders = async (req, res) => {
-      const data = await db.sequelize.query(' select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Rejected" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query(' select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Rejected" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -248,7 +248,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listCreatedProductOrders = async (req, res) => {
-      const data = await db.sequelize.query(' select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Created" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query(' select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Created" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -257,7 +257,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listWaitingValidationProductOrders = async (req, res) => {
-      const data = await db.sequelize.query('select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="WaitingValidation" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query('select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="WaitingValidation" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -266,7 +266,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listInProgressProductOrders = async (req, res) => {
-      const data = await db.sequelize.query('select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="InProgress" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query('select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="InProgress" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -275,7 +275,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listSuspendedProductOrders = async (req, res) => {
-      const data = await db.sequelize.query('select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Suspended" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query('select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Suspended" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -284,7 +284,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listPaidProductOrders = async (req, res) => {
-      const data = await db.sequelize.query('select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="Paid" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query('select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="Paid" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -293,7 +293,7 @@ controllers.update = async (req, res) => {
     
     }
     controllers.listPartiallyPaidProductOrders = async (req, res) => {
-      const data = await db.sequelize.query('select ordersproduits.* ,users.FirstName , users.LastName from optika.ordersproduits,users where userId=users.id and status="PartiallyPaid" order by ordersproduits.Orderdate desc    ', {
+      const data = await db.sequelize.query('select  OrdersProduits.* ,users.FirstName , users.LastName from    OrdersProduits,users where userId=users.id and status="PartiallyPaid" order by  OrdersProduits.Orderdate desc    ', {
         model: db.OrdersProduit,
     
        type: sequelize.QueryTypes.SELECT
@@ -303,7 +303,7 @@ controllers.update = async (req, res) => {
     }
     controllers.getNborderbyVolume =async (req,res) => {
     
-      const data = await db.sequelize.query('select volume,count(*) as nb from optika.ordersproduits group by optika.ordersproduits.volume', {
+      const data = await db.sequelize.query('select volume,count(*) as nb from    OrdersProduits group by    OrdersProduits.volume', {
       model: db.OrdersProduit,
        type: sequelize.QueryTypes.SELECT
     })
@@ -314,7 +314,7 @@ controllers.update = async (req, res) => {
     
     controllers.getNborderbyStatus =async (req,res) => {
     
-      const data = await db.sequelize.query('SELECT count(*) as nb,status FROM optika.ordersproduits group by Status;', {
+      const data = await db.sequelize.query('SELECT count(*) as nb,status FROM    OrdersProduits group by Status;', {
       model: db.OrdersProduit,
        type: sequelize.QueryTypes.SELECT
     })
@@ -326,7 +326,7 @@ controllers.update = async (req, res) => {
       
       const { amount } = req.params;
       const { Orderno } = req.params;
-    const data = await db.sequelize.query('update optika.ordersproduits set amountStillToPay=amountStillToPay-:amount ,partiallyPaidAmount=partiallyPaidAmount+ :amount ,paidAmount=paidAmount+ :amount where Orderno=(:Orderno) ', {
+    const data = await db.sequelize.query('update    OrdersProduits set amountStillToPay=amountStillToPay-:amount ,partiallyPaidAmount=partiallyPaidAmount+ :amount ,paidAmount=paidAmount+ :amount where Orderno=(:Orderno) ', {
 
       replacements: {amount: amount,Orderno: Orderno},
 
@@ -339,7 +339,7 @@ controllers.update = async (req, res) => {
   }
   controllers.amountStillToPay =async (req,res) => {
        const { Orderno } = req.params;
-  const data = await db.sequelize.query('SELECT amountStillToPay FROM optika.ordersproduits where Orderno=(:Orderno) ', {
+  const data = await db.sequelize.query('SELECT amountStillToPay FROM    OrdersProduits where Orderno=(:Orderno) ', {
 
     replacements: {Orderno: Orderno},
 
