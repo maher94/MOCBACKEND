@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 app.post('/create-pdfLentille', (req, res) => {
   console.log(req.body.id);
-  axios.get('http://localhost:4000/ordersLentille/getClientdescriptionByOrdersLentille/' +req.body.id)
+  axios.get('https://mocbackend.cleverapps.io/ordersLentille/getClientdescriptionByOrdersLentille/' +req.body.id)
   .then(response=>
      pdf.create(pdfTemplateLentille(response.data.data[0]), {}).toFile('resultLentille.pdf', (err) => {
     // console.log(req.body.data.find(element=>element!=null)) ;
@@ -38,7 +38,7 @@ app.get('/fetch-pdfLentille', (req, res) => {
 })
 app.post('/create-pdfProduit', (req, res) => {
   console.log(req.body.id);
-  axios.get('http://localhost:4000/ordersProduit/getClientdescriptionByOrdersProduit/' +req.body.id)
+  axios.get('https://mocbackend.cleverapps.io/ordersProduit/getClientdescriptionByOrdersProduit/' +req.body.id)
   .then(response=>
      pdf.create(pdfTemplateProduit(response.data.data[0]), {}).toFile('resultProduit.pdf', (err) => {
     // console.log(req.body.data.find(element=>element!=null)) ;
