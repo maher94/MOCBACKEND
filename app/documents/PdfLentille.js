@@ -88,7 +88,7 @@ return `
                <td colspan="2">
                   <table>
                      <tr>
-                      <td class="title"><img src="http://localhost/images/logos/moc.jpg"
+                      <td class="title"><img src="https://moc.cleverapps.io/images/logos/moc.jpg"
                            style="width:100%; max-width:156px;"></td>
                         <td>
                            Order Date: ${Orderdate!=null?Orderdate.substring(0, 10):""}
@@ -102,10 +102,10 @@ return `
                   <table>
                   <tr>
                  
-                  <td colspan=2 style="text-align: center;width:100%; font-size: 30px"> <center> <b> Lenses Bill  Order </b></center></td>
+                  <td colspan=2 style="text-align: center;width:100%; font-size: 20px"> <center> <b> Lenses Bill  Order </b></center></td>
                   </tr>
                      <tr>
-                        <td style="font-size: 15px">
+                        <td style="font-size: 10px">
                            Order Number:<b> 0000${Orderno==null?"":Orderno}<br></b>
                            
                            Client  Name: ${FirstName==null?"":FirstName}   ${Name==null?"":Name}
