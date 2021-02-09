@@ -11,7 +11,7 @@ return `
          .invoice-box {
          max-width: 800px;
          margin: auto;
-         padding: 30px;
+         padding: 20px;
          border: 1px solid #eee;
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
          font-size: 20px;
@@ -20,7 +20,7 @@ return `
          color: #555;
          }
          .margin-top {
-         margin-top: 30px;
+         margin-top: 20px;
          }
          .justify-center {
          text-align: center;
@@ -41,12 +41,12 @@ return `
          padding-bottom: 10px;
          }
          .invoice-box table tr.top table td.title {
-         font-size: 30px;
+         font-size: 20px;
          line-height: 30px;
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 50px;
+         padding-bottom: 30px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
@@ -89,7 +89,7 @@ return `
                   <table>
                      <tr>
                         <td class="title"><img src="https://moc.cleverapps.io/images/logos/moc.jpg"
-                           style="width:100%; max-width:156px;"></td>
+                           style="width:70%; max-width:120px;"></td>
                         <td>
                         Order Date: ${Orderdate!=null?Orderdate.substring(0, 10):""}
                         </td>
