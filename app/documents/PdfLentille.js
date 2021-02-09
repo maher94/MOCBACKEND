@@ -14,7 +14,7 @@ return `
          padding: 30px;
          border: 1px solid #eee;
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-         font-size: 20px;
+         font-size: 10px;
          line-height: 24px;
          font-family: 'Helvetica Neue', 'Helvetica',
          color: #555;
@@ -41,12 +41,12 @@ return `
          padding-bottom: 20px;
          }
          .invoice-box table tr.top table td.title {
-         font-size: 50px;
-         line-height: 50px;
+         font-size: 20px;
+         line-height: 30px;
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 50px;
+         padding-bottom: 30px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
@@ -54,7 +54,7 @@ return `
          font-weight: bold;
          }
          .invoice-box table tr.details td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.item td {
          border-bottom: 1px solid #eee;
@@ -88,7 +88,7 @@ return `
                <td colspan="2">
                   <table>
                      <tr>
-                        <td class="title"><img src="http://localhost:3000/images/logos/moc.jpg"
+                      <td class="title"><img src="http://localhost/images/logos/moc.jpg"
                            style="width:100%; max-width:156px;"></td>
                         <td>
                            Order Date: ${Orderdate!=null?Orderdate.substring(0, 10):""}
@@ -102,10 +102,10 @@ return `
                   <table>
                   <tr>
                  
-                  <td colspan=2 style="text-align: center;width:100%; font-size: 35px"> <center> <b> Lenses Bill  Order </b></center></td>
+                  <td colspan=2 style="text-align: center;width:100%; font-size: 30px"> <center> <b> Lenses Bill  Order </b></center></td>
                   </tr>
                      <tr>
-                        <td style="font-size: 18px">
+                        <td style="font-size: 15px">
                            Order Number:<b> 0000${Orderno==null?"":Orderno}<br></b>
                            
                            Client  Name: ${FirstName==null?"":FirstName}   ${Name==null?"":Name}

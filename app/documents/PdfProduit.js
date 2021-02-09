@@ -20,7 +20,7 @@ return `
          color: #555;
          }
          .margin-top {
-         margin-top: 50px;
+         margin-top: 30px;
          }
          .justify-center {
          text-align: center;
@@ -38,11 +38,11 @@ return `
          text-align: right;
          }
          .invoice-box table tr.top table td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.top table td.title {
-         font-size: 50px;
-         line-height: 50px;
+         font-size: 30px;
+         line-height: 30px;
          color: #333;
          }
          .invoice-box table tr.information table td {
@@ -54,7 +54,7 @@ return `
          font-weight: bold;
          }
          .invoice-box table tr.details td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.item td {
          border-bottom: 1px solid #eee;
@@ -88,7 +88,7 @@ return `
                <td colspan="2">
                   <table>
                      <tr>
-                        <td class="title"><img src="http://localhost:3000/images/logos/moc.jpg"
+                        <td class="title"><img src="http://localhost/images/logos/moc.jpg"
                            style="width:100%; max-width:156px;"></td>
                         <td>
                         Order Date: ${Orderdate!=null?Orderdate.substring(0, 10):""}
@@ -102,10 +102,10 @@ return `
                   <table>
                   <tr>
                  
-                  <td colspan=2 style="text-align: center;width:100%; font-size: 35px"> <center> <b>Product Bill  Order  </b></center></td>
+                  <td colspan=2 style="text-align: center;width:100%; font-size: 30px"> <center> <b>Product Bill  Order  </b></center></td>
                   </tr>
                      <tr>
-                        <td style="font-size: 18px">
+                        <td style="font-size: 15px">
                            Order Number:<b> 0000${Orderno==null?"":Orderno}<br></b>
                            
                            Client  Name: ${FirstName==null?"":FirstName}   ${Name==null?"":Name}
