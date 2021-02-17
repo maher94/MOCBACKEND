@@ -7,7 +7,23 @@ const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+exports.updatePassword= (req, res) => {
+User.update({
+  password: bcrypt.hashSync(req.body.password, 8)},
+  
+  {
+    where: { email: req.body.email }
+  }
+).then( function (res){
+  return res;
+})
+.catch(error => {
+  return error;
+})
 
+res.json({ success:true,  message: "Password Updated successfuly"});
+
+}
 exports.signup = (req, res) => {
   User.create({
     username: req.body.username,
